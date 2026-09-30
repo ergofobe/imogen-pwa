@@ -1,0 +1,8 @@
+node_modules
+dist
+public/scalar.js
+.env
+.env.*
+!.env.example
+.DS_Store
+*.tsbuildinfo
