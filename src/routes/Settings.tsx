@@ -1,7 +1,6 @@
 import type { User } from '@imogen/shared'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router'
 import { PairDevice } from '../components/PairDevice.tsx'
 import { ProfileForm } from '../components/ProfileForm.tsx'
 import { signOut } from '../components/Shell.tsx'
@@ -175,23 +174,6 @@ export function Settings({ user }: { user: User }) {
           <CopyButton label="Copy MCP URL" value={`${server || window.location.origin}/mcp`} />
         </div>
       </Section>
-
-      {user.role === 'admin' && (
-        <Section title="Administration">
-          <p className="pt-1 text-sm leading-relaxed text-muted">
-            You look after this server. Accounts, the processing queue, connected apps and
-            everything shared publicly are managed separately from your own library.
-          </p>
-          <div className="flex flex-wrap gap-2 pt-3">
-            <Link
-              to="/admin"
-              className="rounded-lg border border-line px-3 py-1.5 text-sm transition hover:bg-sunken"
-            >
-              Open administration
-            </Link>
-          </div>
-        </Section>
-      )}
 
       {pairing && <PairDevice onClose={() => setPairing(false)} />}
 
